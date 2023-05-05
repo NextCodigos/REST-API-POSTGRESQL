@@ -103,3 +103,25 @@ Indexes:
 
 gorm=# 
 
+gorm=# \d users
+                                       Table "public.users"
+   Column   |           Type           | Collation | Nullable |              Defa
+ult              
+------------+--------------------------+-----------+----------+------------------
+-----------------
+ id         | bigint                   |           | not null | nextval('users_id
+_seq'::regclass)
+ created_at | timestamp with time zone |           |          | 
+ updated_at | timestamp with time zone |           |          | 
+ deleted_at | timestamp with time zone |           |          | 
+ first_name | text                     |           | not null | 
+ last_name  | text                     |           | not null | 
+ email      | text                     |           | not null | 
+Indexes:
+    "users_pkey" PRIMARY KEY, btree (id)
+    "idx_users_deleted_at" btree (deleted_at)
+    "idx_users_email" UNIQUE, btree (email)
+
+gorm=# 
+
+MINUTO 31:41 bien
