@@ -66,3 +66,40 @@ building...
 running...
 2023/05/05 17:56:14 Successfully connected to database
 Servidor iniciado en http://localhost:8080
+
+
+VER TABLAS desde contenedor docker:
+
+gorm=# \d
+            List of relations
+ Schema |     Name     |   Type   | Owner 
+--------+--------------+----------+-------
+ public | tasks        | table    | next
+ public | tasks_id_seq | sequence | next
+ public | users        | table    | next
+ public | users_id_seq | sequence | next
+(4 rows)
+
+gorm=# \d task
+Did not find any relation named "task".
+gorm=# \d tasks
+                                       Table "public.tasks"
+   Column    |           Type           | Collation | Nullable |              Def
+ault              
+-------------+--------------------------+-----------+----------+-----------------
+------------------
+ id          | bigint                   |           | not null | nextval('tasks_i
+d_seq'::regclass)
+ created_at  | timestamp with time zone |           |          | 
+ updated_at  | timestamp with time zone |           |          | 
+ deleted_at  | timestamp with time zone |           |          | 
+ title       | text                     |           | not null | 
+ description | text                     |           |          | 
+ done        | boolean                  |           |          | false
+ user_id     | bigint                   |           |          | 
+Indexes:
+    "tasks_pkey" PRIMARY KEY, btree (id)
+    "idx_tasks_deleted_at" btree (deleted_at)
+
+gorm=# 
+
