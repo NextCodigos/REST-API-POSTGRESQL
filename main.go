@@ -4,11 +4,15 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/NEBULA1978/rest-api-postgreSQL/db"
 	"github.com/NEBULA1978/rest-api-postgreSQL/routes"
 	"github.com/gorilla/mux"
 )
 
 func main() {
+
+	db.DBConnection()
+
 	r := mux.NewRouter()
 
 	// Redirige la ruta raíz a la ruta /home

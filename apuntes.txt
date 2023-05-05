@@ -1,0 +1,48 @@
+Iniciar postges con docker:
+
+docker run --name some-postgres -e POSTGRES_USER=next -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres
+
+Conectarme al contenedor postgres:
+
+<◂> docker exec -it some-postgres bash
+root@8ce9d627f638:/# 
+
+next=# CREATE DATABASE gorm;
+CREATE DATABASE
+next=#
+
+next=# \l
+                                            
+ List of databases
+   Name    | Owner | Encoding |  Collate   |
+   Ctype    | ICU Locale | Locale Provider |
+ Access privileges 
+-----------+-------+----------+------------+
+------------+------------+-----------------+
+-------------------
+ gorm      | next  | UTF8     | en_US.utf8 |
+ en_US.utf8 |            | libc            |
+ 
+ next      | next  | UTF8     | en_US.utf8 |
+ en_US.utf8 |            | libc            |
+ 
+ postgres  | next  | UTF8     | en_US.utf8 |
+ en_US.utf8 |            | libc            |
+ 
+ template0 | next  | UTF8     | en_US.utf8 |
+ en_US.utf8 |            | libc            |
+ =c/next          +
+           |       |          |            |
+            |            |                 |
+ next=CTc/next
+ template1 | next  | UTF8     | en_US.utf8 |
+ en_US.utf8 |            | libc            |
+ =c/next          +
+           |       |          |            |
+            |            |                 |
+ next=CTc/next
+(5 rows)
+
+next=# 
+
+
