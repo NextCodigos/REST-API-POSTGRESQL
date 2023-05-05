@@ -2,15 +2,18 @@ Iniciar postges con docker:
 
 docker run --name some-postgres -e POSTGRES_USER=next -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres
 
-Conectarme al contenedor postgres:
+Conectarme al contenedor postgres con consola de bash :
 
 <◂> docker exec -it some-postgres bash
 root@8ce9d627f638:/# 
+
+Cramos base de datos gorm:
 
 next=# CREATE DATABASE gorm;
 CREATE DATABASE
 next=#
 
+Listamos base de datos en contenedor docker:
 next=# \l
                                             
  List of databases
@@ -45,4 +48,21 @@ next=# \l
 
 next=# 
 
+Minuto 24 video Fazt: Go PostgreSQL REST API (gorilla/mux, gorm ORM) Golang
 
+
+Para iniciar y ver conexion base de datos esta bien:
+<◂> air .
+
+  __    _   ___  
+ / /\  | | | |_) 
+/_/--\ |_| |_| \_ , built with Go 
+
+watching .
+watching db
+watching routes
+!exclude tmp
+building...
+running...
+2023/05/05 17:56:14 Successfully connected to database
+Servidor iniciado en http://localhost:8080

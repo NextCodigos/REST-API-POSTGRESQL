@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/NEBULA1978/rest-api-postgreSQL/db"
+	"github.com/NEBULA1978/rest-api-postgreSQL/models"
 	"github.com/NEBULA1978/rest-api-postgreSQL/routes"
 	"github.com/gorilla/mux"
 )
@@ -12,7 +13,9 @@ import (
 func main() {
 
 	db.DBConnection()
-
+	// db.DB.Migrator().DropTable(models.User{})
+	db.DB.AutoMigrate(models.Task{})
+	db.DB.AutoMigrate(models.User{})
 	r := mux.NewRouter()
 
 	// Redirige la ruta raíz a la ruta /home
