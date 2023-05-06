@@ -18,8 +18,16 @@ func main() {
 	db.DB.AutoMigrate(models.User{})
 	r := mux.NewRouter()
 
-	// Redirige la ruta raíz a la ruta /home
 	r.HandleFunc("/", routes.HomeHandler)
+
+	// users routes
+	r.HandleFunc("/users", routes.GetUsersHandler).Methods("GET")
+
+	r.HandleFunc("/users/{id}", routes.GetUserHandler).Methods("GET")
+
+	r.HandleFunc("/users", routes.PostUserHandler).Methods("POST")
+
+	r.HandleFunc("/users/{id}", routes.DeleteUserHandler).Methods("DELETE")
 
 	// Inicia el servidor en el puerto 8080
 	fmt.Println("Servidor iniciado en http://localhost:8080")

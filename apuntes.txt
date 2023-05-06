@@ -7,7 +7,16 @@ Conectarme al contenedor postgres con consola de bash :
 <◂> docker exec -it some-postgres bash
 root@8ce9d627f638:/# 
 
-Cramos base de datos gorm:
+PARA INICIAR \l ejecutamos:
+
+Para ejecutar el comando "\l", debes primero iniciar el intérprete de comandos "psql" dentro del contenedor de PostgreSQL ejecutando el siguiente comando:
+
+lua
+
+psql -U next
+Y me fubnciona \l
+
+Creamos base de datos gorm:
 
 next=# CREATE DATABASE gorm;
 CREATE DATABASE
@@ -125,3 +134,11 @@ Indexes:
 gorm=# 
 
 MINUTO 31:41 bien
+
+Para iniciar y trabajar con una base de datos específica, debes seleccionarla utilizando el comando "USE" en el intérprete de comandos "psql".
+
+En tu caso, si deseas trabajar con la base de datos "gorm", debes ejecutar el siguiente comando después de iniciar el intérprete de comandos "psql" y listar las bases de datos:
+
+r
+
+\c gorm
