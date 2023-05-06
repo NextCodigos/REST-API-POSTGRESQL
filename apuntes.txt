@@ -251,3 +251,12 @@ gorm=#
 
 ///////////////////
 
+Instalar godot:
+<◂> go get github.com/joho/godotenv
+go: downloading github.com/joho/godotenv v1.5.1
+go: added github.com/joho/godotenv v1.5.1
+<◂> 
+
+go get github.com/NEBULA1978/go-postgresql-restapi/models
+
+
