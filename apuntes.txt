@@ -142,3 +142,112 @@ En tu caso, si deseas trabajar con la base de datos "gorm", debes ejecutar el si
 r
 
 \c gorm
+
+
+////////////////////
+
+Metodo GET para ver todos usuarios base de datos:
+Con thunderClient:
+http://localhost:8080/users
+
+Respuesta:
+
+[
+  {
+    "ID": 1,
+    "CreatedAt": "2023-05-06T13:46:18.054733+02:00",
+    "UpdatedAt": "2023-05-06T13:46:18.054733+02:00",
+    "DeletedAt": null,
+    "first_name": "",
+    "last_name": "",
+    "email": "Joe@gmail.com",
+    "tasks": null
+  },
+  {
+    "ID": 2,
+    "CreatedAt": "2023-05-06T13:46:38.647484+02:00",
+    "UpdatedAt": "2023-05-06T13:46:38.647484+02:00",
+    "DeletedAt": null,
+    "first_name": "",
+    "last_name": "",
+    "email": "Maria@gmail.com",
+    "tasks": null
+  },
+  {
+    "ID": 3,
+    "CreatedAt": "2023-05-06T14:07:48.333415+02:00",
+    "UpdatedAt": "2023-05-06T14:07:48.333415+02:00",
+    "DeletedAt": null,
+    "first_name": "",
+    "last_name": "",
+    "email": "Luis@gmail.com",
+    "tasks": null
+  },
+  {
+    "ID": 5,
+    "CreatedAt": "2023-05-06T14:08:21.023325+02:00",
+    "UpdatedAt": "2023-05-06T14:08:21.023325+02:00",
+    "DeletedAt": null,
+    "first_name": "Luis2",
+    "last_name": "Domaa2",
+    "email": "Luis2@gmail.com",
+    "tasks": null
+  },
+  {
+    "ID": 6,
+    "CreatedAt": "2023-05-06T14:09:49.459308+02:00",
+    "UpdatedAt": "2023-05-06T14:09:49.459308+02:00",
+    "DeletedAt": null,
+    "first_name": "Luis24",
+    "last_name": "Domaa24",
+    "email": "Luis24@gmail.com",
+    "tasks": null
+  }
+]
+
+
+Con POST añadimos:
+
+http://localhost:8080/users:
+
+EN EL Body thunderclient:
+POST
+{
+  "first_name": "Luis24",
+  "last_name":"Domaa24",
+  "email": "Luis24@gmail.com"
+}
+Nos añade usuario
+
+Para ver un usuario por ID:
+Con thunderCliend:
+GET
+http://localhost:8080/users/1
+
+Resutado:
+{
+  "ID": 1,
+  "CreatedAt": "2023-05-06T13:46:18.054733+02:00",
+  "UpdatedAt": "2023-05-06T13:46:18.054733+02:00",
+  "DeletedAt": null,
+  "first_name": "",
+  "last_name": "",
+  "email": "Joe@gmail.com",
+  "tasks": []
+}
+
+//////////////////////
+
+Ver tabla ususarios:
+
+gorm=# \dt users
+       List of relations
+ Schema | Name  | Type  | Owner 
+--------+-------+-------+-------
+ public | users | table | next
+(1 row)
+
+gorm=# 
+
+///////////////////
+
